@@ -5,7 +5,7 @@ export const SITE = {
     "Personal research website for Arkabrata Chakraborty, focused on applied AI, retail technology, decision intelligence, and AI products and platforms.",
   url: "https://arkabrata.github.io",
   github: "https://github.com/Arkabrata",
-  linkedin: "#",
+  linkedin: "https://www.linkedin.com/in/arkabratachakraborty/",
   email: "mailto:placeholder@example.com",
 };
 
