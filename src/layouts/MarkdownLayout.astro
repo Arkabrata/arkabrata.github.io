@@ -1,0 +1,14 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout title={`${frontmatter.title} | Arkabrata Chakraborty`} description={frontmatter.description}>
+  <article class="prose page-section">
+    <p class="eyebrow">{frontmatter.pubDate ? frontmatter.pubDate.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" }) : "Project"}</p>
+    <h1>{frontmatter.title}</h1>
+    {frontmatter.description && <p class="lead">{frontmatter.description}</p>}
+    <slot />
+  </article>
+</BaseLayout>

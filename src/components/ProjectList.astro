@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  projects: CollectionEntry<"projects">[];
+}
+
+const { projects } = Astro.props;
+const sortedProjects = [...projects].sort((a, b) => a.data.order - b.data.order);
+const slugFor = (id: string) => id.replace(/\.md$/, "");
+---
+
+<div class="item-list">
+  {sortedProjects.map((project) => (
+    <article class="list-item">
+      <div>
+        <h3><a href={`/projects/${slugFor(project.id)}/`}>{project.data.title}</a></h3>
+        <p>{project.data.description}</p>
+      </div>
+      <div class="tag-row" aria-label={`${project.data.title} tags`}>
+        {project.data.tags.map((tag) => <span>{tag}</span>)}
+      </div>
+    </article>
+  ))}
+</div>

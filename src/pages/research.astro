@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { researchInterests } from "../consts";
+---
+
+<BaseLayout title="Research | Arkabrata Chakraborty" description="Research interests in applied AI for retail, demand forecasting, recommendation systems, AI agents, and decision intelligence.">
+  <section class="page-section page-intro">
+    <p class="eyebrow">Research</p>
+    <h1>Applied AI for decision-intensive retail systems.</h1>
+    <p class="lead">
+      Research interests are centered on AI systems that improve decisions across demand, inventory, supply chain, marketing, and customer experience.
+    </p>
+  </section>
+
+  <section class="page-section">
+    <SectionHeading title="Research Interests" />
+    <div class="research-list">
+      {researchInterests.map((interest) => (
+        <article>
+          <h2>{interest}</h2>
+          <p>
+            Ongoing exploration of models, workflows, metrics, and product interfaces that make this area deployable in real operating environments.
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

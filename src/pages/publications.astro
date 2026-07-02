@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Publications | Arkabrata Chakraborty" description="Publication placeholders for working papers, preprints, conference papers, and journal articles.">
+  <section class="page-section page-intro">
+    <p class="eyebrow">Publications</p>
+    <h1>Publications and research manuscripts.</h1>
+    <p class="lead">A structured bibliography for working papers, preprints, conference papers, and journal articles.</p>
+  </section>
+  <section class="page-section publication-list">
+    {["Working Papers", "Preprints", "Conference Papers", "Journal Articles"].map((section) => (
+      <article>
+        <h2>{section}</h2>
+        <p>Placeholder entries will be added here.</p>
+      </article>
+    ))}
+  </section>
+</BaseLayout>

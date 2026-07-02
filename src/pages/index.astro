@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectList from "../components/ProjectList.astro";
+import SectionHeading from "../components/SectionHeading.astro";
+import { SITE, researchInterests } from "../consts";
+
+const projects = await getCollection("projects");
+const sortedProjects = [...projects].sort((a, b) => a.data.order - b.data.order);
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const slugFor = (id: string) => id.replace(/\.md$/, "");
+---
+
+<BaseLayout>
+  <section class="hero page-section">
+    <p class="eyebrow">Applied AI · Retail Technology · Decision Intelligence</p>
+    <h1>Arkabrata Chakraborty</h1>
+    <p class="role">GM – AI Products & Platforms</p>
+    <p class="lead">
+      I build applied AI systems for retail, supply chain, customer intelligence, and enterprise decision workflows, with an emphasis on practical research translation and reliable product platforms.
+    </p>
+    <div class="link-row">
+      <a href="/research/">Research</a>
+      <a href="/projects/">Projects</a>
+      <a href={SITE.github}>GitHub</a>
+    </div>
+  </section>
+
+  <section class="page-section two-column">
+    <SectionHeading eyebrow="Bio" title="Short Bio" />
+    <div class="prose">
+      <p>
+        Arkabrata Chakraborty is an AI product and platform leader working at the intersection of applied machine learning, retail systems, and decision intelligence. His work focuses on taking AI systems from research prototypes to operational products.
+      </p>
+      <p>
+        Current interests include demand forecasting, recommendation systems, intelligent agents, replenishment systems, inventory movement, marketing analytics, and AI-assisted decision workflows.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <SectionHeading title="Research Interests" description="A research-first view of the AI systems and decision problems that shape the work." />
+    <div class="interest-grid">
+      {researchInterests.map((interest) => <a href="/research/">{interest}</a>)}
+    </div>
+  </section>
+
+  <section class="page-section">
+    <SectionHeading title="Selected Projects" description="Applied AI systems, product platforms, and experimental agents." />
+    <ProjectList projects={sortedProjects.slice(0, 4)} />
+    <p class="section-link"><a href="/projects/">View all projects</a></p>
+  </section>
+
+  <section class="page-section">
+    <SectionHeading title="Writing" description="Notes on AI products, research translation, and decision systems." />
+    <div class="item-list compact">
+      {posts.length ? posts.slice(0, 3).map((post) => (
+        <article class="list-item">
+          <h3><a href={`/blog/${slugFor(post.id)}/`}>{post.data.title}</a></h3>
+          <p>{post.data.description}</p>
+        </article>
+      )) : (
+        <p>Essays and research notes will appear here.</p>
+      )}
+    </div>
+  </section>
+
+  <section class="page-section contact-band">
+    <SectionHeading title="Contact" description="For research, collaboration, product, and platform conversations." />
+    <div class="link-row">
+      <a href={SITE.github}>GitHub</a>
+      <a href={SITE.linkedin}>LinkedIn</a>
+      <a href={SITE.email}>Email</a>
+    </div>
+  </section>
+</BaseLayout>

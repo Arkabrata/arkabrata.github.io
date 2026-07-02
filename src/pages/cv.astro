@@ -1,0 +1,49 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE, researchInterests } from "../consts";
+---
+
+<BaseLayout title="CV | Arkabrata Chakraborty" description="Academic CV for Arkabrata Chakraborty.">
+  <section class="page-section page-intro cv-heading">
+    <p class="eyebrow">Curriculum Vitae</p>
+    <h1>Arkabrata Chakraborty</h1>
+    <p class="lead">GM – AI Products & Platforms · Applied AI · Retail Technology · Decision Intelligence</p>
+  </section>
+
+  <section class="page-section cv-list">
+    <article>
+      <h2>Experience</h2>
+      <p><strong>GM - AI Products & Platforms</strong></p>
+      <p>Leadership across applied AI products, retail technology platforms, decision intelligence systems, and operational AI workflows.</p>
+    </article>
+    <article>
+      <h2>Education</h2>
+      <p>Education details placeholder.</p>
+    </article>
+    <article>
+      <h2>Research Interests</h2>
+      <ul>
+        {researchInterests.map((interest) => <li>{interest}</li>)}
+      </ul>
+    </article>
+    <article>
+      <h2>Selected Projects</h2>
+      <ul>
+        <li>SecureGate</li>
+        <li>Replenishment Platform</li>
+        <li>Inventory Transfer System / IST</li>
+        <li>RareBox</li>
+        <li>Marketing Analytics Agent</li>
+        <li>OrbitAI</li>
+      </ul>
+    </article>
+    <article>
+      <h2>Skills</h2>
+      <p>Applied machine learning, AI product strategy, retail systems, demand forecasting, recommendation systems, agentic workflows, analytics platforms, system design, and decision intelligence.</p>
+    </article>
+    <article>
+      <h2>Contact</h2>
+      <p><a href={SITE.github}>GitHub</a> · <a href={SITE.linkedin}>LinkedIn</a> · <a href={SITE.email}>Email</a></p>
+    </article>
+  </section>
+</BaseLayout>

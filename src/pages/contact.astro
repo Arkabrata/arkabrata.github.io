@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { SITE } from "../consts";
+---
+
+<BaseLayout title="Contact | Arkabrata Chakraborty" description="Contact links for Arkabrata Chakraborty.">
+  <section class="page-section page-intro">
+    <p class="eyebrow">Contact</p>
+    <h1>Research, product, and platform conversations.</h1>
+    <p class="lead">Reach out for applied AI, retail technology, and decision intelligence collaborations.</p>
+  </section>
+  <section class="page-section contact-list">
+    <a href={SITE.github}><span>GitHub</span><strong>github.com/Arkabrata</strong></a>
+    <a href={SITE.linkedin}><span>LinkedIn</span><strong>Placeholder</strong></a>
+    <a href={SITE.email}><span>Email</span><strong>Placeholder</strong></a>
+  </section>
+</BaseLayout>

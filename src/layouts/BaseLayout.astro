@@ -1,0 +1,57 @@
+---
+import { SITE, navItems } from "../consts";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = SITE.title, description = SITE.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, SITE.url);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={canonical} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="stylesheet" href="/styles/global.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#content">Skip to content</a>
+    <header class="site-header">
+      <nav class="nav" aria-label="Main navigation">
+        <a class="brand" href="/" aria-label={`${SITE.name} home`}>
+          <span>{SITE.name}</span>
+        </a>
+        <div class="nav-links">
+          {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+        </div>
+      </nav>
+    </header>
+    <main id="content" class="site-main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <p>© {new Date().getFullYear()} {SITE.name}</p>
+      <div class="footer-links">
+        <a href={SITE.github}>GitHub</a>
+        <a href={SITE.linkedin}>LinkedIn</a>
+        <a href={SITE.email}>Email</a>
+      </div>
+    </footer>
+  </body>
+</html>

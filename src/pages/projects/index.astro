@@ -1,0 +1,20 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectList from "../../components/ProjectList.astro";
+
+const projects = await getCollection("projects");
+---
+
+<BaseLayout title="Projects | Arkabrata Chakraborty" description="Selected AI product and platform projects by Arkabrata Chakraborty.">
+  <section class="page-section page-intro">
+    <p class="eyebrow">Projects</p>
+    <h1>Selected applied AI systems and platforms.</h1>
+    <p class="lead">
+      Work spanning secure access, replenishment, inventory transfers, analytics agents, experimentation, and productized AI workflows.
+    </p>
+  </section>
+  <section class="page-section">
+    <ProjectList projects={projects} />
+  </section>
+</BaseLayout>

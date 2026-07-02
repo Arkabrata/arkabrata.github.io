@@ -1,0 +1,30 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const posts = (await getCollection("blog", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const slugFor = (id: string) => id.replace(/\.md$/, "");
+---
+
+<BaseLayout title="Blog | Arkabrata Chakraborty" description="Markdown-based writing and research notes by Arkabrata Chakraborty.">
+  <section class="page-section page-intro">
+    <p class="eyebrow">Blog</p>
+    <h1>Writing and research notes.</h1>
+    <p class="lead">Short essays on applied AI, retail technology, decision intelligence, and building AI products.</p>
+  </section>
+  <section class="page-section">
+    <div class="item-list">
+      {posts.map((post) => (
+        <article class="list-item">
+          <div>
+            <p class="date">{post.data.pubDate.toLocaleDateString("en", { year: "numeric", month: "long", day: "numeric" })}</p>
+            <h2><a href={`/blog/${slugFor(post.id)}/`}>{post.data.title}</a></h2>
+            <p>{post.data.description}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
