@@ -1,22 +1,22 @@
 ---
 title: "Inventory Transfer System / IST"
-description: "A decision system for identifying and executing inventory transfers across retail locations."
+description: "An inter-store transfer and multi-warehouse allocation engine driving automated inventory movement decisions across 300+ stores."
 order: 3
-tags: ["Inventory", "Optimization", "Retail Operations"]
+tags: ["Inventory", "Optimization", "Retail Operations", "Clustering"]
 repo: "#"
 ---
 
 ## Problem
-Retail networks often have simultaneous overstock and stockout risk across locations. Transfer decisions need to consider demand, distance, cost, and execution feasibility.
+Retail networks routinely carry overstock in some locations while others face stockouts of the same SKUs. Transfer decisions must weigh projected demand, proximity, SLA, fulfillment cost, and execution feasibility — too many dimensions to manage manually at 300+ store scale.
 
 ## Method
-IST frames inventory movement as a decision intelligence problem using inventory signals, projected demand, operational constraints, and transfer scoring.
+IST frames inventory movement as a decision intelligence problem: store- and SKU-clustering models identify demand patterns, and a multi-warehouse allocation service scores candidate transfers on projected demand, distance, SLA, and fulfillment cost.
 
 ## System / Workflow
-The workflow identifies candidate source and destination locations, ranks feasible transfers, surfaces recommendations, and tracks execution outcomes.
+The workflow identifies candidate source and destination locations from live inventory and forecast signals, ranks feasible transfers, surfaces recommendations for execution, and tracks realized outcomes to refine future scoring.
 
 ## Impact
-The project aims to reduce stranded inventory, improve availability, and support faster movement decisions across the network.
+Together with the replenishment engine, the system contributed to a 35% reduction in inventory aging by moving stranded stock to where demand exists, improving availability without additional purchasing.
 
 ## Future Research Direction
-Future research can explore multi-echelon transfer optimization, causal impact measurement, and reinforcement learning for dynamic inventory movement.
+Future research includes multi-echelon transfer optimization, causal measurement of transfer impact on sell-through, and reinforcement learning for dynamic inventory movement policies.

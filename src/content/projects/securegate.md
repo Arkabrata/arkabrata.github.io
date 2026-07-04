@@ -1,22 +1,22 @@
 ---
 title: "SecureGate"
-description: "A secure access and workflow control system for AI-enabled enterprise operations."
-order: 1
-tags: ["Security", "Workflow", "AI Platform"]
+description: "An AI-enabled warehouse gate management platform with OCR-based invoice validation, ERP and logistics integration, and a companion mobile app."
+order: 4
+tags: ["Document AI / OCR", "FastAPI", "GCP", "Logistics"]
 repo: "#"
 ---
 
 ## Problem
-Enterprise AI systems require controlled access, clear auditability, and a workflow layer that protects sensitive business processes without slowing down operational teams.
+Warehouse gate operations for a large omnichannel retailer relied on manual invoice checks and disconnected logistics records, creating slow gate throughput, data entry errors, and weak traceability between physical goods movement and ERP records.
 
 ## Method
-SecureGate explores policy-driven access, role-aware approval paths, and event logs that can be integrated with AI product workflows.
+SecureGate combines an OCR-based document AI pipeline for invoice validation with rule-driven verification against ERP and logistics systems, so every vehicle and consignment entering or leaving the warehouse is validated automatically before gate clearance.
 
 ## System / Workflow
-The system is organized around identity, authorization, request routing, exception handling, and observability. Each action is treated as a traceable workflow event.
+The platform is built end to end on a FastAPI backend deployed on GCP, integrating ERP and logistics systems with a mobile application used at the gate. Documents are captured, parsed via the OCR pipeline, matched against expected purchase orders and shipments, and cleared or flagged for exception handling — with every gate event logged for audit.
 
 ## Impact
-The project provides a foundation for safer AI-enabled operations in enterprise environments where governance and speed both matter.
+The system replaces manual gate paperwork with automated validation, reducing gate processing time, catching invoice mismatches before goods enter the warehouse, and giving supply chain teams a reliable, auditable record of inbound and outbound movement.
 
 ## Future Research Direction
-Future work can study AI-assisted policy recommendation, anomaly detection for workflow abuse, and human-in-the-loop review for sensitive AI actions.
+Future work includes anomaly detection over gate event patterns, LLM-assisted exception resolution for mismatched documents, and tighter feedback loops between gate data and inventory planning systems.

@@ -1,22 +1,22 @@
 ---
 title: "RareBox"
-description: "An experimentation space for AI product concepts, prototypes, and research translation."
-order: 4
-tags: ["Prototyping", "AI Products", "Experimentation"]
+description: "An internal AI and analytics platform (FastAPI, BigQuery, Cloud Run, LLM agent) serving 900+ active users company-wide."
+order: 5
+tags: ["AI Platform", "LLM Agents", "FastAPI", "BigQuery"]
 repo: "#"
 ---
 
 ## Problem
-AI product ideas need a lightweight space for rapid validation before they become formal platforms or operational tools.
+Teams across merchandising, marketing, finance, and warehouse operations depended on analysts to pull data from disconnected ERP, POS, marketing, and logistics systems — turning simple business questions into multi-day request queues.
 
 ## Method
-RareBox supports exploratory builds, concept validation, and structured learning from prototypes.
+RareBox unifies ML model outputs, planning tools, and an LLM-powered query agent behind a single platform, letting business users self-serve answers and act on model recommendations directly instead of waiting on ad hoc analysis.
 
 ## System / Workflow
-The workflow moves from hypothesis to prototype, evaluation, user feedback, and decision on whether to scale, pause, or archive.
+Built as sole engineer on FastAPI, BigQuery, and Cloud Run, the platform ingests data from ERP, POS, marketing, finance, and warehouse systems into a shared BigQuery foundation. Users access dashboards, planning workflows, and a natural-language query agent through one interface, with role-based access via JWT auth.
 
 ## Impact
-The project creates a disciplined path from ambiguous AI ideas to evidence-backed product opportunities.
+RareBox serves 900+ active daily users and cut cross-team analytical turnaround from days to minutes, becoming the company's default surface for data-driven decisions.
 
 ## Future Research Direction
-Future work can add experiment tracking, reusable agent patterns, and evaluation harnesses for AI product prototypes.
+Future work includes agent evaluation harnesses, memory for longitudinal business context, and multi-agent workflows that chain analysis, recommendation, and execution steps.

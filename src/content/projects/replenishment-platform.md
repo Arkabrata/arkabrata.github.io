@@ -1,22 +1,22 @@
 ---
 title: "Replenishment Platform"
-description: "An AI-assisted replenishment system for retail inventory planning and operational decision support."
+description: "An AI-driven replenishment engine combining demand forecasts, sell-through rates, and lead-time constraints — reduced inventory aging by 35%."
 order: 2
-tags: ["Demand Forecasting", "Retail AI", "Supply Chain"]
+tags: ["Supply Chain", "Demand Forecasting", "Retail AI", "Optimization"]
 repo: "#"
 ---
 
 ## Problem
-Retail replenishment requires balancing service levels, inventory carrying cost, supplier constraints, store demand, seasonality, and operational risk.
+Retail replenishment across 300+ stores requires balancing service levels, inventory carrying cost, supplier lead times, store-level demand, and seasonality — decisions that were previously slow, manual, and inconsistent across categories.
 
 ## Method
-The platform combines forecasting, rules, exception management, and decision intelligence workflows to support planners.
+The engine combines SKU-store demand forecasts from the production forecasting platform with sell-through rates, lead-time constraints, and business rules to generate automated replenishment recommendations, with exception management for planner review.
 
 ## System / Workflow
-Data flows from sales, inventory, demand signals, lead times, and business constraints into forecasting and recommendation modules, followed by planner review and execution.
+Sales, inventory, demand signals, and constraint data flow from the BigQuery data foundation into the recommendation engine. The system produces ranked replenishment quantities per store and SKU, routes exceptions to planners, and pushes approved decisions into execution systems.
 
 ## Impact
-The system is designed to improve replenishment accuracy, reduce avoidable stockouts, and make planning decisions more explainable.
+Deployed in production for a ₹1,000 Cr retail business, the platform reduced inventory aging by 35% while automating a decision process that previously consumed significant planner time.
 
 ## Future Research Direction
-Future work includes transformer-based demand forecasting, uncertainty-aware recommendations, and adaptive replenishment policies.
+Future work includes uncertainty-aware replenishment policies, multi-echelon optimization across warehouses and stores, and adaptive policies that learn from realized stockout and overstock outcomes.
